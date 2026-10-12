@@ -8,7 +8,7 @@ export interface OppositionInfo {
   scope: string;
   category: string;
   places: number;
-  status: 'Inscripción abierta' | 'Lista admitidos publicada' | 'Fecha examen fijada' | 'Oferta de empleo aprobada';
+  status: 'Inscripción abierta' | 'Plazo de Inscripción Abierto' | 'Bolsa y Convocatoria Abierta Permanente' | 'Convocatoria Abierta' | 'Lista admitidos publicada' | 'Fecha examen fijada' | 'Oferta de empleo aprobada';
   estimatedDate: string;
   dogvReference: string;
   description: string;

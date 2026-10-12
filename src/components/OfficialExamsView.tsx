@@ -11,14 +11,20 @@ import {
   ChevronRight,
   Sparkles,
   Search,
-  Filter
+  Filter,
+  ArrowRight,
+  AlertCircle
 } from 'lucide-react';
 import { OFFICIAL_EXAMS } from '../data/officialExams';
 import { OfficialExam } from '../types';
 import { ExamRunner } from './ExamRunner';
 import { useApp } from '../context/AppContext';
 
-export const OfficialExamsView: React.FC = () => {
+interface OfficialExamsViewProps {
+  onNavigateToOpenCalls?: () => void;
+}
+
+export const OfficialExamsView: React.FC<OfficialExamsViewProps> = ({ onNavigateToOpenCalls }) => {
   const { activeOpposition } = useApp();
   const [selectedExam, setSelectedExam] = useState<OfficialExam | null>(null);
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
@@ -69,13 +75,13 @@ export const OfficialExamsView: React.FC = () => {
         <div className="space-y-1">
           <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Archivo Histórico Oficial (2015 - 2024)</span>
+            <span>Banco de Práctica • Exámenes Reales Anteriores</span>
           </div>
           <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-            Exámenes Oficiales OPE Comunitat Valenciana
+            Histórico de Exámenes Oficiales de Enfermería
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Cuadernillos íntegros de exámenes celebrados con sus plantillas definitivas oficiales y justificación razonada de cada respuesta y distractor.
+            Cuadernillos íntegros de exámenes celebrados con sus plantillas definitivas oficiales para entrenar en condiciones reales.
           </p>
         </div>
 
@@ -85,6 +91,34 @@ export const OfficialExamsView: React.FC = () => {
             Aciertos - (Fallos ÷ 3)
           </div>
         </div>
+      </div>
+
+      {/* Notice differentiating practice history from active open registrations */}
+      <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-transparent border border-emerald-500/30 dark:border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex items-start sm:items-center space-x-3">
+          <div className="p-2 rounded-xl bg-emerald-500 text-white shrink-0 shadow-xs">
+            <Sparkles className="w-5 h-5" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
+              <span>¿Buscas inscribirte en convocatorias u oposiciones abiertas?</span>
+              <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-600 text-white font-bold">Plazo Activo</span>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+              Estos exámenes son para practicar. Si deseas consultar las convocatorias y bolsas de empleo con plazo de solicitud vigente (Sanitat GVA, CHGUV, SAMU, EIR), accede a la sección de oposiciones abiertas.
+            </p>
+          </div>
+        </div>
+
+        {onNavigateToOpenCalls && (
+          <button
+            onClick={onNavigateToOpenCalls}
+            className="px-4 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shrink-0 flex items-center justify-center space-x-2 transition-transform active:scale-95"
+          >
+            <span>Ver Oposiciones Abiertas</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        )}
       </div>
 
       {/* Filter and Search Toolbar */}

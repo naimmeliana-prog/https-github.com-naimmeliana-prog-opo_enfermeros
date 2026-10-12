@@ -28,12 +28,12 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { id: 'dashboard', label: 'Panel de Control', icon: LayoutDashboard },
+  { id: 'opposition-finder', label: 'Oposiciones Abiertas', icon: Search, badge: 'Plazo Abierto', badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' },
   { id: 'dynamic-simulator', label: 'Simulador Dinámico', icon: Clock, badge: 'Tiempo Real', badgeColor: 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300' },
   { id: 'test-generator', label: 'Generador de Tests', icon: Layers, badge: 'Por Bloques', badgeColor: 'bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300' },
-  { id: 'official-exams', label: 'Exámenes Oficiales', icon: FileText, badge: 'GVA Oficial', badgeColor: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300' },
+  { id: 'official-exams', label: 'Histórico de Exámenes', icon: FileText, badge: 'Para Practicar', badgeColor: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300' },
   { id: 'trap-questions', label: 'Preguntas Trampa', icon: AlertTriangle, badge: 'Alta Frecuencia', badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300' },
   { id: 'syllabus', label: 'Temario Completo CV', icon: BookOpen },
-  { id: 'opposition-finder', label: 'Buscador en Tiempo Real', icon: Search, badge: 'DOGV Live', badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' },
   { id: 'clinical-cases', label: 'Casos Prácticos', icon: Stethoscope },
   { id: 'mnemonics', label: 'Preguntas & Mnemotecnia', icon: BrainCircuit },
   { id: 'downloads', label: 'Recursos Descargables', icon: DownloadCloud },

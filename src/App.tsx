@@ -102,7 +102,9 @@ const MainLayout: React.FC = () => {
                 />
               )}
               {activeTab === 'test-generator' && <TestGenerator />}
-              {activeTab === 'official-exams' && <OfficialExamsView />}
+              {activeTab === 'official-exams' && (
+                <OfficialExamsView onNavigateToOpenCalls={() => setActiveTab('opposition-finder')} />
+              )}
               {activeTab === 'trap-questions' && <TrapQuestions />}
               {activeTab === 'syllabus' && <SyllabusView />}
               {activeTab === 'opposition-finder' && <OppositionFinder />}
