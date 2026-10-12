@@ -101,11 +101,11 @@ export const OfficialExamsView: React.FC<OfficialExamsViewProps> = ({ onNavigate
           </div>
           <div>
             <div className="text-xs font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
-              <span>¿Buscas inscribirte en convocatorias u oposiciones abiertas?</span>
-              <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-600 text-white font-bold">Plazo Activo</span>
+              <span>¿Buscas inscribirte en convocatorias o bolsas de empleo oficiales?</span>
+              <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-600 text-white font-bold">DOGV Live</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-              Estos exámenes son para practicar. Si deseas consultar las convocatorias y bolsas de empleo con plazo de solicitud vigente (Sanitat GVA, CHGUV, SAMU, EIR), accede a la sección de oposiciones abiertas.
+              Estos exámenes son para practicar con plantillas oficiales. Si deseas consultar las convocatorias de la Conselleria de Sanitat y las bolsas de empleo temporal con plazo telemático abierto, accede al monitor de convocatorias.
             </p>
           </div>
         </div>
@@ -115,7 +115,7 @@ export const OfficialExamsView: React.FC<OfficialExamsViewProps> = ({ onNavigate
             onClick={onNavigateToOpenCalls}
             className="px-4 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shrink-0 flex items-center justify-center space-x-2 transition-transform active:scale-95"
           >
-            <span>Ver Oposiciones Abiertas</span>
+            <span>Ver Convocatorias y Bolsas</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         )}

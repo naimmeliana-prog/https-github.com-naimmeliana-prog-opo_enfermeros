@@ -19,7 +19,9 @@ import { SYLLABUS_TOPICS } from '../data/syllabus';
 import { SyllabusTopic } from '../types';
 import { useApp } from '../context/AppContext';
 import { LawReaderModal } from './LawReaderModal';
+import { KeyPointModal } from './KeyPointModal';
 import { OFFICIAL_LEGAL_DOCS } from '../data/legalTexts';
+import { KEY_POINTS_DETAILS, KeyPointDetail } from '../data/keyPointsData';
 
 export const SyllabusView: React.FC = () => {
   const { activeOpposition } = useApp();
@@ -32,6 +34,7 @@ export const SyllabusView: React.FC = () => {
   const [selectedTopic, setSelectedTopic] = useState<SyllabusTopic>(topics[0] || SYLLABUS_TOPICS[0]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLawId, setSelectedLawId] = useState<string | null>(null);
+  const [selectedKeyPoint, setSelectedKeyPoint] = useState<KeyPointDetail | null>(null);
 
   const filteredTopics = topics.filter(t => 
     t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -53,6 +56,31 @@ export const SyllabusView: React.FC = () => {
     if (lower.includes('3/2018') || lower.includes('protección de datos') || lower.includes('lopdgdd')) return 'lo-3-2018';
     if (lower.includes('5/1983') || lower.includes('gobierno valenciano') || lower.includes('consell')) return 'ley-5-1983-cv';
     return 'ley-10-2014';
+  };
+
+  const handleOpenKeyPoint = (pt: string, pIdx: number) => {
+    const specific = KEY_POINTS_DETAILS[selectedTopic.id]?.[pIdx];
+    if (specific) {
+      setSelectedKeyPoint(specific);
+    } else {
+      setSelectedKeyPoint({
+        id: `${selectedTopic.id}-kp-${pIdx}`,
+        topicNumber: selectedTopic.number,
+        topicTitle: selectedTopic.title,
+        shortSummary: pt,
+        conceptTitle: pt.length > 70 ? pt.slice(0, 67) + '...' : pt,
+        badge: 'Alta Frecuencia OPE',
+        frequencyLevel: 'Alta',
+        category: 'Cuidados y Procedimientos',
+        legalOrClinicalReference: selectedTopic.officialNorms?.[0] || 'Temario Oficial Conselleria de Sanitat CV',
+        fullExplanation: `Desglose doctrinal y normativo oficial para el Tema ${selectedTopic.number} (${selectedTopic.title}):\n\n${pt}\n\nEste punto clave constituye una de las materias evaluadas de forma preferente por los tribunales calificadores de la Conselleria de Sanitat. En el ejercicio de la profesión enfermera dentro del Sistema Valenciano de Salud, se exige la correcta aplicación práctica de este principio tanto en la esfera de cuidados como en el estricto cumplimiento del marco legal autonómico.`,
+        examRelevance: 'Pregunta recurrente en exámenes oficiales de turno libre y promoción interna.',
+        tribunalQuestionStyle: `Pregunta habitual de examen oficial: "¿En relación con los principios de actuación en ${selectedTopic.title.toLowerCase()}, señale la respuesta correcta de acuerdo con la normativa vigente en la Comunitat Valenciana?"`,
+        dangerousTrap: 'Atención a los distractores con plazos cambiados o enunciados que intercambian la competencia autonómica con la estatal.',
+        mnemonicOrMemoryTip: 'Memoriza los términos nucleares y comprueba su aplicación en los simulacros oficiales de la plataforma.',
+        relatedLawId: selectedTopic.officialNorms?.[0] ? getLawIdFromText(selectedTopic.officialNorms[0]) : undefined
+      });
+    }
   };
 
   return (
@@ -220,19 +248,56 @@ export const SyllabusView: React.FC = () => {
                 </div>
               )}
 
-              {/* Key Takeaways Box (Preguntas clave de examen) */}
-              <div className="p-4 sm:p-5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800/80 space-y-2">
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-900 dark:text-amber-200 flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-amber-600" />
-                  <span>Puntos Clave Frecuentes en el Examen Oficial</span>
+              {/* Key Takeaways Box (Preguntas clave de examen) - Formato interactivo similar a Normativa Oficial */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800/80 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div className="text-xs font-black uppercase tracking-wider text-amber-900 dark:text-amber-200 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    <span>Puntos Clave Frecuentes en el Examen Oficial (Haz clic en cualquier punto para ver su desarrollo íntegro)</span>
+                  </div>
+                  <span className="text-[11px] font-bold text-amber-800 dark:text-amber-300">
+                    Desarrollo, Artículos, Trampas y Preguntas Oficiales
+                  </span>
                 </div>
-                <div className="space-y-1.5 text-xs text-amber-950 dark:text-amber-200 font-medium">
-                  {selectedTopic.keyPoints.map((pt, pIdx) => (
-                    <div key={pIdx} className="flex items-start gap-2">
-                      <span className="text-amber-600 font-bold shrink-0">✓</span>
-                      <span>{pt}</span>
-                    </div>
-                  ))}
+
+                <div className="grid grid-cols-1 gap-2.5">
+                  {selectedTopic.keyPoints.map((pt, pIdx) => {
+                    const specific = KEY_POINTS_DETAILS[selectedTopic.id]?.[pIdx];
+                    return (
+                      <div
+                        key={pIdx}
+                        onClick={() => handleOpenKeyPoint(pt, pIdx)}
+                        className="p-3 sm:p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-700 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-md cursor-pointer transition-all flex items-center justify-between group"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 group-hover:bg-amber-600 group-hover:text-white transition-colors shrink-0">
+                            <Sparkles className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                              {specific ? specific.conceptTitle : pt}
+                            </div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-2 mt-0.5">
+                              {specific ? (
+                                <>
+                                  <span className="font-semibold text-amber-700 dark:text-amber-300">{specific.badge}</span>
+                                  <span>•</span>
+                                  <span>{specific.legalOrClinicalReference}</span>
+                                </>
+                              ) : (
+                                <span>{pt}</span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center space-x-1.5 text-xs text-amber-700 dark:text-amber-300 font-black shrink-0 bg-amber-50 dark:bg-amber-950 px-3 py-1.5 rounded-lg border border-amber-200 dark:border-amber-800 group-hover:bg-amber-600 group-hover:text-white transition-all ml-2">
+                          <span>Ver Desarrollo Íntegro</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -267,6 +332,13 @@ export const SyllabusView: React.FC = () => {
         lawId={selectedLawId}
         onClose={() => setSelectedLawId(null)}
         onSelectLaw={(newId) => setSelectedLawId(newId)}
+      />
+
+      {/* Key Point Detail Modal */}
+      <KeyPointModal
+        keyPoint={selectedKeyPoint}
+        onClose={() => setSelectedKeyPoint(null)}
+        onOpenRelatedLaw={(lawId) => setSelectedLawId(lawId)}
       />
 
     </div>

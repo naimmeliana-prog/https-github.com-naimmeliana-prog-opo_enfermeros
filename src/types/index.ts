@@ -178,20 +178,33 @@ export interface StudySession {
   description: string;
 }
 
+export type CallStatusType = 
+  | 'Plazo Abierto' 
+  | 'Bolsa Abierta Permanente' 
+  | 'Plazo de Instancias Cerrado (En Baremación / Listas)' 
+  | 'Próxima OPE (Aprobada en Oferta de Empleo Público)' 
+  | 'Lista Provisional' 
+  | 'Fecha Fijada' 
+  | 'Próxima Publicación';
+
 export interface RealtimeOposicionCall {
   id: string;
   organism: string;
   scope: string; // "Comunitat Valenciana", "Valencia", "Alicante", "Castellón"
   title: string;
-  status: 'Plazo Abierto' | 'Lista Provisional' | 'Fecha Fijada' | 'Próxima Publicación';
+  status: CallStatusType;
+  categoryType: 'bolsa_abierta' | 'ope_en_curso' | 'proxima_ope';
   places: number;
   placesBreakdown: { libre: number; promocion: number; diversidad: number };
   deadline: string;
+  currentPhaseDescription?: string;
   examDate?: string;
   dogvNum: string;
   dogvUrl: string;
   applicationUrl: string;
+  portalUrl?: string;
   requirements: string[];
+  lastVerifiedDate?: string;
 }
 
 export interface UserStats {

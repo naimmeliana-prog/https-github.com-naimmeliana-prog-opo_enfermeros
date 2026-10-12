@@ -28,7 +28,7 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { id: 'dashboard', label: 'Panel de Control', icon: LayoutDashboard },
-  { id: 'opposition-finder', label: 'Oposiciones Abiertas', icon: Search, badge: 'Plazo Abierto', badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' },
+  { id: 'opposition-finder', label: 'Convocatorias y Bolsas', icon: Search, badge: 'DOGV Live', badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' },
   { id: 'dynamic-simulator', label: 'Simulador Dinámico', icon: Clock, badge: 'Tiempo Real', badgeColor: 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300' },
   { id: 'test-generator', label: 'Generador de Tests', icon: Layers, badge: 'Por Bloques', badgeColor: 'bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300' },
   { id: 'official-exams', label: 'Histórico de Exámenes', icon: FileText, badge: 'Para Practicar', badgeColor: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300' },
