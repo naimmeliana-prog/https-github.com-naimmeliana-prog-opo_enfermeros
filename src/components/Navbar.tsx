@@ -13,7 +13,8 @@ import {
   LogOut,
   Sparkles,
   ShieldAlert,
-  Globe
+  Globe,
+  Calendar
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { OPPOSITIONS } from '../data/oppositions';
@@ -119,6 +120,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                             {isSelected && <span className="w-2 h-2 rounded-full bg-teal-500 inline-block" />}
                           </div>
                           <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{opp.places} Plazas • {opp.status}</div>
+                          {opp.registrationDeadline && (
+                            <div className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1 mt-0.5">
+                              <Calendar className="w-2.5 h-2.5" />
+                              <span>Plazo: {opp.registrationDeadline}</span>
+                            </div>
+                          )}
                         </div>
                         <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono">
                           {opp.examQuestionsCount} preg.

@@ -9,6 +9,13 @@ export interface OppositionInfo {
   category: string;
   places: number;
   status: 'Inscripción abierta' | 'Plazo de Inscripción Abierto' | 'Bolsa y Convocatoria Abierta Permanente' | 'Convocatoria Abierta' | 'Lista admitidos publicada' | 'Fecha examen fijada' | 'Oferta de empleo aprobada';
+  registrationDeadline?: string;
+  registrationPeriod?: {
+    startDate: string;
+    endDate: string;
+    formatted: string;
+    isPermanent?: boolean;
+  };
   estimatedDate: string;
   dogvReference: string;
   description: string;
@@ -179,13 +186,11 @@ export interface StudySession {
 }
 
 export type CallStatusType = 
+  | 'Convocatoria Abierta'
   | 'Plazo Abierto' 
   | 'Bolsa Abierta Permanente' 
-  | 'Plazo de Instancias Cerrado (En Baremación / Listas)' 
-  | 'Próxima OPE (Aprobada en Oferta de Empleo Público)' 
-  | 'Lista Provisional' 
-  | 'Fecha Fijada' 
-  | 'Próxima Publicación';
+  | 'Próxima OPE (Aprobada en Oferta de Empleo Público)'
+  | 'Plazo de Instancias Cerrado (En Baremación / Listas)';
 
 export interface RealtimeOposicionCall {
   id: string;
@@ -193,10 +198,14 @@ export interface RealtimeOposicionCall {
   scope: string; // "Comunitat Valenciana", "Valencia", "Alicante", "Castellón"
   title: string;
   status: CallStatusType;
-  categoryType: 'bolsa_abierta' | 'ope_en_curso' | 'proxima_ope';
+  categoryType: 'convocatoria_abierta' | 'bolsa_abierta' | 'ope_en_curso' | 'proxima_ope';
   places: number;
   placesBreakdown: { libre: number; promocion: number; diversidad: number };
   deadline: string;
+  deadlineDate?: string; // YYYY-MM-DD
+  deadlineFormatted?: string; // e.g. "20 de noviembre de 2026 (23:59h)"
+  startDateFormatted?: string; // e.g. "14 de octubre de 2026"
+  isPermanentDeadline?: boolean;
   currentPhaseDescription?: string;
   examDate?: string;
   dogvNum: string;

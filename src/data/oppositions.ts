@@ -10,6 +10,12 @@ export const OPPOSITIONS: OppositionInfo[] = [
     category: 'Enfermera/o (Subgrupo A2 Sanitario)',
     places: 3817,
     status: 'Plazo de Inscripción Abierto',
+    registrationDeadline: '16 de noviembre de 2026 (hasta las 23:59 h)',
+    registrationPeriod: {
+      startDate: '13 de octubre de 2026',
+      endDate: '16 de noviembre de 2026',
+      formatted: 'Del 13 de octubre al 16 de noviembre de 2026 (20 días hábiles)'
+    },
     estimatedDate: 'Plazo telemático en curso (Bases publicadas)',
     dogvReference: 'DOGV Núm. 9942 / Res. Conselleria de Sanitat',
     description: 'Convocatoria oficial para provisión de plazas estatutarias de enfermería en centros hospitalarios y de atención primaria del Sistema Sanitario Público Valenciano con plazo de registro de instancias activo.',
@@ -26,6 +32,12 @@ export const OPPOSITIONS: OppositionInfo[] = [
     category: 'Enfermero/a Consorcial',
     places: 425,
     status: 'Plazo de Inscripción Abierto',
+    registrationDeadline: '18 de noviembre de 2026 (hasta las 23:59 h)',
+    registrationPeriod: {
+      startDate: '15 de octubre de 2026',
+      endDate: '18 de noviembre de 2026',
+      formatted: 'Del 15 de octubre al 18 de noviembre de 2026 (20 días hábiles)'
+    },
     estimatedDate: 'Fase de instancias y registro telemático activa',
     dogvReference: 'DOGV Núm. 9890 / Acord CHGUV',
     description: 'Proceso selectivo y bolsa activa de enfermería para el Hospital General de Valencia y su departamento asistencial con solicitudes abiertas.',
@@ -42,6 +54,13 @@ export const OPPOSITIONS: OppositionInfo[] = [
     category: 'Enfermero/a SAMU Emergencias',
     places: 190,
     status: 'Bolsa y Convocatoria Abierta Permanente',
+    registrationDeadline: '20 de noviembre de 2026 (actualización de corte)',
+    registrationPeriod: {
+      startDate: '01 de octubre de 2026',
+      endDate: '20 de noviembre de 2026',
+      formatted: 'Del 1 de octubre al 20 de noviembre de 2026',
+      isPermanent: true
+    },
     estimatedDate: 'Inscripción y baremo continuo en Sede GVA',
     dogvReference: 'DOGV Núm. 9910 / Res. SES CV',
     description: 'Puestos de enfermería de soporte vital avanzado (SVA) y coordinación en el Centro de Información y Coordinación de Urgencias (CICU).',
@@ -58,6 +77,12 @@ export const OPPOSITIONS: OppositionInfo[] = [
     category: 'Enfermería Especialista (EFyC, Pediatría, Matrona, Salud Mental)',
     places: 312,
     status: 'Convocatoria Abierta',
+    registrationDeadline: '06 de noviembre de 2026 (hasta las 14:00 h)',
+    registrationPeriod: {
+      startDate: '05 de octubre de 2026',
+      endDate: '06 de noviembre de 2026',
+      formatted: 'Del 5 de octubre al 6 de noviembre de 2026'
+    },
     estimatedDate: 'Presentación telemática de solicitudes abierta',
     dogvReference: 'BOE / DOGV Concurrente',
     description: 'Pruebas selectivas para el acceso a plazas de formación sanitaria especializada para la profesión de enfermería en centros acreditados de la Comunitat Valenciana.',

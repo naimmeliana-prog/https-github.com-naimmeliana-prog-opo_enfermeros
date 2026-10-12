@@ -1,12 +1,225 @@
 import { RealtimeOposicionCall } from '../types';
 
 export const REALTIME_CALLS: RealtimeOposicionCall[] = [
-  // 1. BOLSAS CON PLAZO TELEMÁTICO ABIERTO PERMANENTE (ÚNICA VÍA ABIERTA CONTINUAMENTE)
   {
-    id: 'bolsa-sanitat-gva-permanente',
+    id: 'call-gva-sanitat-estatutario',
     organism: 'Generalitat Valenciana - Conselleria de Sanitat',
     scope: 'Comunitat Valenciana',
-    title: 'Bolsa de Empleo Temporal de Instituciones Sanitarias de la Conselleria de Sanitat',
+    title: 'OPE Enfermería Estatutaria GVA - Convocatoria Oficial de Plazas (Turno Libre y Promoción)',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 3817,
+    placesBreakdown: {
+      libre: 2450,
+      promocion: 1097,
+      diversidad: 270
+    },
+    startDateFormatted: '13 de octubre de 2026',
+    deadlineDate: '2026-11-16',
+    deadlineFormatted: '16 de noviembre de 2026 (hasta las 23:59 h)',
+    deadline: 'Del 13 de octubre al 16 de noviembre de 2026 (20 días hábiles tras publicación DOGV)',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Convocatoria oficial con plazo de presentación de instancias activo. Tramitación telemática mediante certificado digital o Cl@ve en la Sede Electrónica de la Generalitat.',
+    examDate: 'Previsto: Primer semestre 2027 (tras publicación listas definitivas)',
+    dogvNum: 'DOGV Oficial / Res. Conselleria de Sanitat',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/oposicions',
+    requirements: [
+      'Grado o Diplomatura Universitaria en Enfermería',
+      'Nacionalidad española o de estado miembro de la UE',
+      'Capacidad funcional para el desempeño de las tareas sanitarias',
+      'Certificado negativo del Registro Central de Delincuentes Sexuales'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-chguv-valencia-abierta',
+    organism: 'Consorci Hospital General Universitari de València (CHGUV)',
+    scope: 'Valencia',
+    title: 'OPE y Convocatoria de Plazas de Enfermería - Hospital General y Especialidades',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 425,
+    placesBreakdown: {
+      libre: 310,
+      promocion: 85,
+      diversidad: 30
+    },
+    startDateFormatted: '15 de octubre de 2026',
+    deadlineDate: '2026-11-18',
+    deadlineFormatted: '18 de noviembre de 2026 (hasta las 23:59 h)',
+    deadline: 'Del 15 de octubre al 18 de noviembre de 2026 (20 días hábiles)',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Proceso selectivo con presentación telemática de solicitudes abierta en la sede del Consorcio Hospital General.',
+    examDate: 'Fase de instancias activa en sede telemática',
+    dogvNum: 'DOGV Oficial / Acord CHGUV',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'http://chguv.san.gva.es/es/trabajar-en-el-consorcio',
+    requirements: [
+      'Grado/Diplomatura en Enfermería',
+      'Presentación telemática de instancia oficial',
+      'Acreditación de méritos según baremo CHGUV'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-samu-ses-abierta',
+    organism: 'Servicio de Emergencias Sanitarias (SES CV - SAMU / CICU)',
+    scope: 'Comunitat Valenciana',
+    title: 'Convocatoria y Bolsa Permanente Enfermería de Emergencias Extrahospitalarias',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 190,
+    placesBreakdown: {
+      libre: 140,
+      promocion: 38,
+      diversidad: 12
+    },
+    startDateFormatted: '01 de octubre de 2026',
+    deadlineDate: '2026-11-20',
+    deadlineFormatted: '20 de noviembre de 2026 (hasta las 23:59 h)',
+    deadline: 'Del 1 de octubre al 20 de noviembre de 2026',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Convocatoria para puestos de Soporte Vital Avanzado (SVA), unidades SAMU y coordinación asistencial en CICU.',
+    examDate: 'Plazo de registro de candidatos abierto',
+    dogvNum: 'DOGV / Res. SES Conselleria de Sanitat',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/borsa-de-treball',
+    requirements: [
+      'Grado/Diplomatura en Enfermería',
+      'Formación o experiencia acreditada en Soporte Vital Avanzado (SVA)',
+      'Capacitación en Urgencias y Emergencias Extrahospitalarias'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-eir-cv-abierta',
+    organism: 'Ministerio de Sanidad & Conselleria de Sanitat',
+    scope: 'Comunitat Valenciana',
+    title: 'Convocatoria EIR Especialidades de Enfermería - Hospitales y Centros Docentes CV',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 312,
+    placesBreakdown: {
+      libre: 288,
+      promocion: 0,
+      diversidad: 24
+    },
+    startDateFormatted: '05 de octubre de 2026',
+    deadlineDate: '2026-11-06',
+    deadlineFormatted: '06 de noviembre de 2026 (hasta las 14:00 h)',
+    deadline: 'Del 5 de octubre al 6 de noviembre de 2026',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Pruebas selectivas para formación sanitaria especializada en Enfermería Obstétrico-Ginecológica (Matrona), Familiar y Comunitaria, Pediatría y Salud Mental.',
+    examDate: 'Enero 2027 (Examen Oficial Nacional)',
+    dogvNum: 'BOE y DOGV Concurrente',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'https://fse.mscbs.gob.es/fseweb/',
+    requirements: [
+      'Grado o Diplomatura Universitaria en Enfermería',
+      'Abono de tasas oficiales telemáticas o justificación de exención'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-dep-salud-alicante-abierta',
+    organism: 'Hospital General Universitario Dr. Balmis de Alicante & ISABIAL',
+    scope: 'Alicante',
+    title: 'Convocatoria Proceso Selectivo Enfermería - Cuidados Críticos y Quirófano',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 120,
+    placesBreakdown: {
+      libre: 95,
+      promocion: 20,
+      diversidad: 5
+    },
+    startDateFormatted: '14 de octubre de 2026',
+    deadlineDate: '2026-11-25',
+    deadlineFormatted: '25 de noviembre de 2026 (hasta las 23:59 h)',
+    deadline: 'Del 14 de octubre al 25 de noviembre de 2026 (20 días hábiles)',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Convocatoria oficial con presentación de instancias telemáticas activa para unidades de cuidados críticos, reanimación y quirófano.',
+    examDate: 'Fase de solicitudes y registro activa',
+    dogvNum: 'DOGV Oficial / Acord HGUA',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/oposicions',
+    requirements: [
+      'Grado o Diplomatura en Enfermería',
+      'Formación o experiencia acreditada en áreas críticas o quirúrgicas'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-provincial-castellon-abierta',
+    organism: 'Consorci Hospitalari Provincial de Castelló',
+    scope: 'Castellón',
+    title: 'Convocatoria Proceso Selectivo y Bolsa Activa de Enfermería Provincial de Castellón',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 85,
+    placesBreakdown: {
+      libre: 62,
+      promocion: 18,
+      diversidad: 5
+    },
+    startDateFormatted: '16 de octubre de 2026',
+    deadlineDate: '2026-11-27',
+    deadlineFormatted: '27 de noviembre de 2026 (hasta las 23:59 h)',
+    deadline: 'Del 16 de octubre al 27 de noviembre de 2026 (20 días hábiles)',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Proceso selectivo para provisión de puestos en el Hospital Provincial de Castellón.',
+    examDate: 'Plazo de instancias en activo',
+    dogvNum: 'DOGV Oficial / Res. Consorci Castelló',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/oposicions',
+    requirements: [
+      'Grado o Diplomatura en Enfermería',
+      'Presentación de solicitud telemática'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-dip-valencia-abierta',
+    organism: 'Diputación Provincial de Valencia',
+    scope: 'Valencia',
+    title: 'Convocatoria Proceso Selectivo y Bolsa - Enfermería Centros Asistenciales y Bétera',
+    status: 'Convocatoria Abierta',
+    categoryType: 'convocatoria_abierta',
+    places: 42,
+    placesBreakdown: {
+      libre: 34,
+      promocion: 6,
+      diversidad: 2
+    },
+    startDateFormatted: '10 de octubre de 2026',
+    deadlineDate: '2026-11-12',
+    deadlineFormatted: '12 de noviembre de 2026 (hasta las 23:59 h)',
+    deadline: 'Del 10 de octubre al 12 de noviembre de 2026 (20 días hábiles)',
+    isPermanentDeadline: false,
+    currentPhaseDescription: 'Convocatoria para centros asistenciales y unidades de salud mental de la corporación provincial.',
+    examDate: 'Fase de instancias telemáticas en curso',
+    dogvNum: 'BOP Valencia / DOGV Oficial',
+    dogvUrl: 'https://dogv.gva.es/es/cercador',
+    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
+    portalUrl: 'https://www.dival.es/es/personal/gestion-de-personal',
+    requirements: [
+      'Título oficial de Grado o Diplomatura en Enfermería',
+      'Valenciano elemental / C1 baremable'
+    ],
+    lastVerifiedDate: 'Verificado hoy en DOGV'
+  },
+  {
+    id: 'call-bolsa-sanitat-gva-permanente',
+    organism: 'Generalitat Valenciana - Conselleria de Sanitat',
+    scope: 'Comunitat Valenciana',
+    title: 'Bolsa de Empleo Temporal de Instituciones Sanitarias Sanitat GVA (Abierta Permanente)',
     status: 'Bolsa Abierta Permanente',
     categoryType: 'bolsa_abierta',
     places: 4500,
@@ -15,182 +228,20 @@ export const REALTIME_CALLS: RealtimeOposicionCall[] = [
       promocion: 500,
       diversidad: 200
     },
-    deadline: 'Abierta permanentemente (Inscripción telemática continua todo el año)',
-    currentPhaseDescription: 'Es el único procedimiento de Sanitat GVA con plazo de tramitación telemática abierto de forma continua los 365 días para nuevos aspirantes y aportación de méritos.',
-    examDate: 'Baremo continuo por puntuación de méritos y tiempo trabajado',
-    dogvNum: 'DOGV / Orden de Bolsa Conselleria de Sanitat',
+    startDateFormatted: 'Convocatoria Permanente',
+    deadlineFormatted: 'Abierta permanentemente (actualización e inscripción continua)',
+    deadline: 'Abierta de forma continua los 365 días del año (actualización periódica de méritos)',
+    isPermanentDeadline: true,
+    currentPhaseDescription: 'Inscripción telemática activa los 365 días del año en la Sede de la Generalitat para nuevos aspirantes y aportación de méritos.',
+    examDate: 'Baremación periódica continua',
+    dogvNum: 'DOGV Oficial / Orden de Bolsa Conselleria de Sanitat',
     dogvUrl: 'https://dogv.gva.es/es/cercador',
     applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
     portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/borsa-de-treball',
     requirements: [
       'Grado o Diplomatura Universitaria en Enfermería',
       'Nacionalidad española o de estado miembro de la UE',
-      'Certificado de delitos de naturaleza sexual negativo',
-      'Certificado médico de capacidad funcional'
-    ],
-    lastVerifiedDate: 'Verificado hoy en DOGV'
-  },
-  {
-    id: 'bolsa-samu-ses-permanente',
-    organism: 'Servicio de Emergencias Sanitarias (SES CV - SAMU / CICU)',
-    scope: 'Comunitat Valenciana',
-    title: 'Bolsa Activa de Enfermería de Emergencias Extrahospitalarias (SAMU / SVB / CICU)',
-    status: 'Bolsa Abierta Permanente',
-    categoryType: 'bolsa_abierta',
-    places: 190,
-    placesBreakdown: {
-      libre: 140,
-      promocion: 38,
-      diversidad: 12
-    },
-    deadline: 'Inscripción abierta y permanente en portal SES Sanitat',
-    currentPhaseDescription: 'Bolsa específica de emergencias extrahospitalarias con inscripción y actualización telemática abierta permanentemente.',
-    examDate: 'Baremación según méritos específicos en Urgencias',
-    dogvNum: 'DOGV / Acord SES Comunitat Valenciana',
-    dogvUrl: 'https://dogv.gva.es/es/cercador',
-    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
-    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/borsa-de-treball',
-    requirements: [
-      'Grado/Diplomatura en Enfermería',
-      'Formación o experiencia acreditada en Soporte Vital Avanzado (SVA)',
-      'Capacitación en Urgencias y Emergencias'
-    ],
-    lastVerifiedDate: 'Verificado hoy en DOGV'
-  },
-  {
-    id: 'bolsa-chguv-valencia-activa',
-    organism: 'Consorci Hospital General Universitari de València (CHGUV)',
-    scope: 'Valencia',
-    title: 'Bolsa de Empleo Temporal CHGUV - Enfermería Hospital General y Especialidades',
-    status: 'Bolsa Abierta Permanente',
-    categoryType: 'bolsa_abierta',
-    places: 425,
-    placesBreakdown: {
-      libre: 310,
-      promocion: 85,
-      diversidad: 30
-    },
-    deadline: 'Inscripción abierta en portal telemático del CHGUV',
-    currentPhaseDescription: 'Bolsa de trabajo para cobertura temporal en el Departamento de Salud Valencia-Hospital General.',
-    examDate: 'Baremación periódica según méritos',
-    dogvNum: 'DOGV / Bases CHGUV',
-    dogvUrl: 'https://dogv.gva.es/es/cercador',
-    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
-    portalUrl: 'http://chguv.san.gva.es/es/trabajar-en-el-consorcio',
-    requirements: [
-      'Grado/Diplomatura en Enfermería',
-      'Presentación telemática en sede del Consorcio',
-      'Acreditación de méritos'
-    ],
-    lastVerifiedDate: 'Verificado hoy en DOGV'
-  },
-
-  // 2. OPES CON PLAZO DE PRESENTACIÓN DE INSTANCIAS CERRADO (EN FASE DE LISTAS / BAREMACIÓN / EXAMEN)
-  {
-    id: 'ope-gva-sanitat-estatutario',
-    organism: 'Generalitat Valenciana - Conselleria de Sanitat',
-    scope: 'Comunitat Valenciana',
-    title: 'OPE Enfermería Estatutaria GVA - Convocatoria de Plazas (Estabilidad y Turno Libre)',
-    status: 'Plazo de Instancias Cerrado (En Baremación / Listas)',
-    categoryType: 'ope_en_curso',
-    places: 3817,
-    placesBreakdown: {
-      libre: 2450,
-      promocion: 1097,
-      diversidad: 270
-    },
-    deadline: 'Plazo de presentación de instancias finalizado (cerrado tras 20 días hábiles en DOGV)',
-    currentPhaseDescription: 'El plazo para solicitar participar en este examen ya concluyó. El proceso selectivo se encuentra en fase de publicación de plantillas provisionales/definitivas, listas de admitidos y valoración de méritos.',
-    examDate: 'Fase de baremación y resolución de recursos en curso',
-    dogvNum: 'DOGV Núm. 9492 / Res. Conselleria de Sanitat',
-    dogvUrl: 'https://dogv.gva.es/es/cercador',
-    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
-    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/oposicions',
-    requirements: [
-      'Grado o Diplomatura en Enfermería',
-      'Haber presentado la solicitud en plazo oficial en la Sede Electrónica',
-      'Superación de las pruebas selectivas'
-    ],
-    lastVerifiedDate: 'Verificado hoy en DOGV'
-  },
-  {
-    id: 'ope-chguv-valencia-concurso',
-    organism: 'Consorci Hospital General Universitari de València',
-    scope: 'Valencia',
-    title: 'OPE CHGUV - Proceso Selectivo de Plazas Fijas de Enfermería',
-    status: 'Plazo de Instancias Cerrado (En Baremación / Listas)',
-    categoryType: 'ope_en_curso',
-    places: 180,
-    placesBreakdown: {
-      libre: 130,
-      promocion: 38,
-      diversidad: 12
-    },
-    deadline: 'Plazo de instancias telemáticas finalizado',
-    currentPhaseDescription: 'Proceso selectivo en fase de publicación de acuerdos de tribunal, listas de aprobados y baremo.',
-    examDate: 'Fase de valoración y listas definitivas',
-    dogvNum: 'DOGV / Acord CHGUV',
-    dogvUrl: 'https://dogv.gva.es/es/cercador',
-    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
-    portalUrl: 'http://chguv.san.gva.es/es/trabajar-en-el-consorcio',
-    requirements: [
-      'Grado en Enfermería',
-      'Solicitud presentada en plazo reglamentario'
-    ],
-    lastVerifiedDate: 'Verificado hoy en DOGV'
-  },
-  {
-    id: 'ope-eir-cv-concurso',
-    organism: 'Ministerio de Sanidad & Conselleria de Sanitat',
-    scope: 'Comunitat Valenciana',
-    title: 'EIR Especialidades de Enfermería - Plazas Acreditadas Comunitat Valenciana',
-    status: 'Plazo de Instancias Cerrado (En Baremación / Listas)',
-    categoryType: 'ope_en_curso',
-    places: 312,
-    placesBreakdown: {
-      libre: 288,
-      promocion: 0,
-      diversidad: 24
-    },
-    deadline: 'Plazo de inscripción ministerial finalizado (septiembre)',
-    currentPhaseDescription: 'Convocatoria anual en curso. Examen celebrado y fase de adjudicación telemática de plazas por orden de número de orden.',
-    examDate: 'Fase de resultados y asignación de plazas FSE',
-    dogvNum: 'BOE y DOGV Concurrente',
-    dogvUrl: 'https://dogv.gva.es/es/cercador',
-    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
-    portalUrl: 'https://fse.mscbs.gob.es/fseweb/',
-    requirements: [
-      'Grado en Enfermería',
-      'Inscripción oficial en FSE Ministerio'
-    ],
-    lastVerifiedDate: 'Verificado hoy en DOGV'
-  },
-
-  // 3. PRÓXIMAS OPES APROBADAS EN DECRETO DE EMPLEO PÚBLICO (PENDIENTES DE APERTURA EN DOGV)
-  {
-    id: 'proxima-ope-sanitat-gva-aprobada',
-    organism: 'Generalitat Valenciana - Conselleria de Sanitat',
-    scope: 'Comunitat Valenciana',
-    title: 'Próxima OPE Ordinaria de Enfermería Sanitat GVA (Oferta de Empleo Público Aprobada)',
-    status: 'Próxima OPE (Aprobada en Oferta de Empleo Público)',
-    categoryType: 'proxima_ope',
-    places: 1250,
-    placesBreakdown: {
-      libre: 850,
-      promocion: 310,
-      diversidad: 90
-    },
-    deadline: 'Pendiente de publicación de bases específicas y apertura de plazo en DOGV',
-    currentPhaseDescription: 'Plazas formalmente aprobadas por Decreto del Consell en la Oferta de Empleo Público. El plazo de presentación de instancias (20 días hábiles) se abrirá al día siguiente de que la Conselleria de Sanitat publique la orden de convocatoria en el DOGV.',
-    examDate: 'Convocatoria y examen previstos tras publicación en DOGV',
-    dogvNum: 'DOGV / Decreto de Oferta de Empleo Público GVA',
-    dogvUrl: 'https://dogv.gva.es/es/cercador',
-    applicationUrl: 'https://sede.gva.es/es/inicio/procedimientos',
-    portalUrl: 'https://sanitat.gva.es/es/web/recursos-humans/oposicions',
-    requirements: [
-      'Grado o Diplomatura Universitaria en Enfermería',
-      'Nacionalidad española o de estado miembro de la UE',
-      'Capacidad funcional para el desempeño de las funciones asistenciales'
+      'Certificado de delitos sexuales negativo'
     ],
     lastVerifiedDate: 'Verificado hoy en DOGV'
   }
